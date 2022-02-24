@@ -1,44 +1,29 @@
-import React, {useState} from 'react';
-import { Button, Text, View, Image } from 'react-native';
+import React from 'react'; // Importamos React
+import {View, Text, Image, ScrollView, TextInput } from 'react-native'; // Importamos elementos de React Native
 
-const Dog = (props) => {
-  const [isHungry, setIsHungry] = useState(true);
-  
-  
-  return(
-    <View>
-      {isHungry ? 
-        <Image source={{
-          uri: 'https://thumbs.dreamstime.com/b/perro-hambriento-41453522.jpg'
-        }}
-        style={{width: 250, height: 300}}
-        /> :
-        <Image source={{
-          uri: 'https://img.freepik.com/vector-gratis/ilustracion-dibujos-animados-perro-feliz-humor_11460-3669.jpg?size=338&ext=jpg.com/b/perro-hambriento-41453522.jpg'
-        }}
-        style={{width: 250, height: 300}}
-        />
-      }
-      <Text>
-        Soy {props.name}, y estoy {isHungry ? 'hambriento' : 'lleno'}
-      </Text>
-      <Button
-        onPress={() => {
-          setIsHungry(false);
-        }}
-        disabled={!isHungry}
-        title={isHungry ? 'Alimentame!' : 'Gracias!'}
-  />
-  </View>  
-  );
+const App = () => { // Creamos un componente llamado App
+    return(
+        <ScrollView>
+            <Text>Node.js</Text>
+            <View>
+                <Text>Actividad 2</Text>
+                <Image source={{
+                    uri: 'https://victorroblesweb.es/wp-content/uploads/2018/01/nodejs-victorroblesweb.png'
+                }}
+                style={{width: 200, height: 200}}
+                />
+            </View>
+            <TextInput
+                style={{
+                    height: 40,
+                    width: 300,
+                    borderColor: 'gray',
+                    borderWidth: 1
+                }}
+                defaultValue="Puedes escribir aquí"
+            />
+        </ScrollView>
+    );
 }
 
-const App = () => {
-  return(
-    <>
-      <Dog name="Firulais" />
-      <Dog name="Max" />
-    </>
-  );
-}
-export default App;
+export default App; // Exportamos el componente App
